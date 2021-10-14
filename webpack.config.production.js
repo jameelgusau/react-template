@@ -57,29 +57,34 @@
 // };
 
 const mode = 'production';
+const path = require('path');
 const devtool = (mode === 'development') ? 'eval' : 'source-map';
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const port = process.env.PORT || 9090;
 
 module.exports = {
-  mode: 'production', 
+  mode, 
   entry: {
     vendor: ["react"],
     app: './src/index.js'
   },
 
   output: {
-    filename: 'static/[name].[hash].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[fullhash].js',
+    path: path.join(__dirname, 'dist'),
+    // path: path.join(__dirname, 'build'),
+    // filename: 'js/[name].[contenthash].bundle.min.js',
+    chunkFilename: 'js/[name].[chunkhash].bundle.js',
+
+    clean: true, 
     publicPath: '/'
   },
   resolve: {
     alias: {
       "react-dom": "@hot-loader/react-dom",
     },
-    extensions: ['', '.js', '.jsx']
   },
   devtool,
   module: {
@@ -104,15 +109,6 @@ module.exports = {
           ]
           
       },
-      {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        // PostCSS will run before css-loader and will 
-        // minify and autoprefix our CSS rules.
-        loader: 'postcss-loader',
-      }
     ]
   },
   optimization: {
@@ -134,11 +130,22 @@ module.exports = {
     }
   },
   plugins: [
-    new MiniCssExtractPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProgressPlugin(),
+    // new webpack.AutomaticPrefetchPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/favicon.ico'
     })
   ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
+    port: port,
+    historyApiFallback: true,
+    open: true,
+    hot: true
+
+  }
 };
