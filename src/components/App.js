@@ -17,9 +17,11 @@ const AsyncDynamicPAge = importedComponent(
       LoadingComponent: Loading
     }
   );
-
+  
 
 const App = () => {
+    AsyncDynamicPAge.preload();
+    AsyncNoMatch.preload()
   return (
     <Router>
       <div>
