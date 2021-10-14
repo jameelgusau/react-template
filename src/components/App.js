@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 
 import Home from './home/Home';
@@ -28,7 +28,8 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/dynamic" component={AsyncDynamicPAge} />
-          <Route component={AsyncNoMatch} />
+          <Routeexact path="/re" component={AsyncNoMatch} />
+          <Redirect from="*" to="/re" />
         </Switch>
       </div>
     </Router>
