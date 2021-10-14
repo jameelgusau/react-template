@@ -28,7 +28,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/dynamic" component={AsyncDynamicPAge} />
-          <Routeexact path="/re" component={AsyncNoMatch} />
+          <Route exact path="/re" component={AsyncNoMatch} />
           <Redirect from="*" to="/re" />
         </Switch>
       </div>
