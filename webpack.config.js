@@ -72,7 +72,7 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[hash].js',
+    filename: '[name].[fullhash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true, 
     publicPath: '/'
@@ -127,14 +127,17 @@ module.exports = {
   },
   plugins: [
     new webpack.ProgressPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.AutomaticPrefetchPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/favicon.ico'
     })
   ],
   devServer: {
-    host: 'localhost',
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
     port: port,
     historyApiFallback: true,
     open: true,
