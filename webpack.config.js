@@ -73,7 +73,11 @@ module.exports = {
 
   output: {
     filename: '[name].[fullhash].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist'),
+    // path: path.join(__dirname, 'build'),
+    // filename: 'js/[name].[contenthash].bundle.min.js',
+    chunkFilename: 'js/[name].[chunkhash].bundle.js',
+
     clean: true, 
     publicPath: '/'
   },
