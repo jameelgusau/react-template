@@ -1,0 +1,60 @@
+{
+  "name": "react-template",
+  "version": "1.0.0",
+  "description": "This is a react boilerplate with webpack and babel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameelgusau/react-template.git"
+  },
+  "keywords": [
+    "React",
+    "Router",
+    "Webpack."
+  ],
+  "author": "Shehu jamilu Gusau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameelgusau/react-template/issues"
+  },
+  "homepage": "https://github.com/jameelgusau/react-template#readme",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-delay-render": "^0.1.2",
+    "react-dom": "^17.0.2",
+    "react-imported-component": "^6.4.1",
+    "react-router-dom": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@hot-loader/react-dom": "^17.0.1",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.4.0",
+    "cssnano": "^5.0.8",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.4.2",
+    "postcss-loader": "^6.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "react-hot-loader": "^4.13.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  }
+} 
