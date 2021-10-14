@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-import './layout.scss';
+import './Layout.scss';
 
 
 const Layout = ({ children }) => {
